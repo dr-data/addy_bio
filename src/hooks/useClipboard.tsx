@@ -4,10 +4,6 @@ export function useClipboard() {
   const [copied, setCopied] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
-  if (!navigator?.clipboard) {
-    setError("Clipboard API not supported");
-  }
-
   useEffect(() => {
     const timer = setTimeout(() => {
       if (copied) {
@@ -17,6 +13,12 @@ export function useClipboard() {
 
     return () => clearTimeout(timer);
   }, [copied]);
+
+  if (typeof window !== "undefined") {
+    if (!navigator?.clipboard) {
+      setError("Clipboard API not supported");
+    }
+  }
 
   async function copy(text: string) {
     try {
