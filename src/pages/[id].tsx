@@ -36,7 +36,7 @@ const IDPage: NextPage<Props> = ({ error, profile }) => {
       />
       <div className="grid gap-6">
         <div className="bg-white rounded-lg shadow shadow-blue-gray-200">
-          <div className="flex items-center gap-4 px-4 py-6">
+          <div className="flex flex-col text-center sm:(flex-row text-left) items-center gap-4 px-4 py-6">
             <Image
               height={75}
               width={75}
@@ -45,8 +45,8 @@ const IDPage: NextPage<Props> = ({ error, profile }) => {
               src={avatarURL}
             />
             <header>
-              <h1 className="text-lg font-semibold sm:text-xl"> {name} </h1>
-              <p className="text-base text-gray-600">{description}</p>
+              <h1 className="text-lg font-semibold "> {name} </h1>
+              <p className="text-base text-gray-500">{description}</p>
             </header>
           </div>
         </div>
