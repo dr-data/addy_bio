@@ -2,7 +2,7 @@ import { TOKENS } from "@config/tokens";
 import { useClipboard } from "@hooks/useClipboard";
 import { Address } from "../../types";
 import { Button } from "@components/Button";
-
+import Image from "next/image";
 interface Props {
   address: Address;
 }
@@ -13,8 +13,10 @@ export function Address({ address }: Props) {
   return (
     <div className="flex items-center justify-between gap-2 p-2 border rounded-xl">
       <div className="flex items-center gap-4">
-        <img
-          className="rounded-full h-8"
+        <Image
+          height={30}
+          width={30}
+          className="rounded-full"
           alt={token.name}
           src={token.iconURL}
         />

@@ -4,7 +4,7 @@ import { Address } from "@components/Widgets";
 import { supabase } from "@config/supabaseClient";
 import { NextSeo } from "next-seo";
 import { Profile } from "../types";
-
+import Image from "next/image";
 interface Props {
   profile?: Profile;
   error?: string;
@@ -36,13 +36,17 @@ const IDPage: NextPage<Props> = ({ error, profile }) => {
       />
       <div className="grid gap-6">
         <div className="bg-white rounded-lg shadow shadow-blue-gray-200">
-          <div className="flex items-center gap-4 p-4">
-            <img className="rounded-full h-14" alt={name} src={avatarURL} />
+          <div className="flex items-center gap-4 px-4 py-6">
+            <Image
+              height={75}
+              width={75}
+              className="rounded-full"
+              alt={name}
+              src={avatarURL}
+            />
             <header>
-              <h1 className="text-base font-semibold sm:text-lg"> {name} </h1>
-              <p className="text-sm text-gray-600 sm:text-base">
-                {description}
-              </p>
+              <h1 className="text-lg font-semibold sm:text-xl"> {name} </h1>
+              <p className="text-base text-gray-600">{description}</p>
             </header>
           </div>
         </div>
